@@ -16,7 +16,7 @@ function CreateJobBlip(noItem) -- Used globally
     SetBlipAsShortRange(currentBlip, true)
     SetBlipColour(currentBlip, 1)
     BeginTextCommandSetBlipName("STRING")
-    AddTextComponentSubstringPlayerName("Travail pénitentiaire")
+    AddTextComponentSubstringPlayerName(Lang:t("info.job_blip"))
     EndTextCommandSetBlipName(currentBlip)
     if noItem then return end
     local Chance = math.random(100)
@@ -63,7 +63,7 @@ end
 local function StartWork()
     isWorking = true
     Config.Locations.jobs[currentJob][currentLocation].done = true
-    QBCore.Functions.Progressbar("work_electric", "Réparer...", math.random(5000, 10000), false, true, {
+    QBCore.Functions.Progressbar("work_electric", Lang:t("info.job_progressbar"), math.random(5000, 10000), false, true, {
         disableMovement = true,
         disableCarMovement = true,
         disableMouse = false,
@@ -101,7 +101,7 @@ CreateThread(function()
                     options = {
                         {
                             icon = 'fa-solid fa-bolt',
-                            label = ''..Config.Jobs[k]..' Faire fonctionner',
+                            label = Config.Jobs[k],
                             canInteract = function()
                                 return inJail and currentJob and not Config.Locations.jobs[k][i].done and not isWorking and i == currentLocation
                             end,

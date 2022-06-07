@@ -70,7 +70,7 @@ RegisterNetEvent('electronickit:UseElectronickit', function()
         QBCore.Functions.TriggerCallback('QBCore:HasItem', function(result)
             if result then
                 TriggerEvent('inventory:client:requiredItems', requiredItems, false)
-                QBCore.Functions.Progressbar("hack_gate", "Kit électronique enfichable..", math.random(5000, 10000), false, true, {
+                QBCore.Functions.Progressbar("hack_gate", Lang:t("info.prisonbreak_progressbar"), math.random(5000, 10000), false, true, {
                     disableMovement = true,
                     disableCarMovement = true,
                     disableMouse = false,
@@ -97,15 +97,15 @@ end)
 RegisterNetEvent('prison:client:SetLockDown', function(isLockdown)
     securityLockdown = isLockdown
     if securityLockdown and inJail then
-        TriggerEvent("chatMessage", "OTAGE", "error", "Le niveau de sécurité le plus élevé est actif, restez avec les blocs de cellules!")
+        TriggerEvent("chatMessage", "POLICE", "error", Lang:t("info.prisonbreak_lockdown"))
     end
 end)
 
 RegisterNetEvent('prison:client:PrisonBreakAlert', function()
     local coords = vector3(Config.Locations["middle"].coords.x, Config.Locations["middle"].coords.y, Config.Locations["middle"].coords.z)
-    local alertData = {title = "Nouvel appel", coords = {x = coords.x, y = coords.y, z = coords.z}, description = "Évasion de prison"}
+    local alertData = {title = Lang:t("info.policecall"), coords = {x = coords.x, y = coords.y, z = coords.z}, description = Lang:t("info.policecall_reason")}
     TriggerEvent("qb-phone:client:addPoliceAlert", alertData)
-    TriggerEvent('police:client:policeAlert', coords, "Évasion de prison")
+    TriggerEvent('police:client:policeAlert', coords, Lang:t("info.policecall_reason"))
 
     local BreakBlip = AddBlipForCoord(coords.x, coords.y, coords.z)
     TriggerServerEvent('prison:server:JailAlarm')
@@ -178,10 +178,10 @@ CreateThread(function()
                         inRange = true
                         if securityLockdown then
                             sleep = 0
-                            DrawText3D(Gates[k].coords.x, Gates[k].coords.y, Gates[k].coords.z, "~r~VERROUILLAGE DU SYSTÈME")
+                            DrawText3D(Gates[k].coords.x, Gates[k].coords.y, Gates[k].coords.z, Lang:t("error.systemlock"))
                         elseif Gates[k].hit then
                             sleep = 0
-                            DrawText3D(Gates[k].coords.x, Gates[k].coords.y, Gates[k].coords.z, "VIOLATION DU SYSTÈME")
+                            DrawText3D(Gates[k].coords.x, Gates[k].coords.y, Gates[k].coords.z, Lang:t("success.systembreach"))
                         elseif not requiredItemsShowed then
                             requiredItemsShowed = true
                             TriggerEvent('inventory:client:requiredItems', requiredItems, true)
