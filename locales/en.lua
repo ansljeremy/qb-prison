@@ -1,26 +1,26 @@
 local Translations = {
     error = {
-        ["missing_something"] = "Il vous manque quelque chose...",
-        ["not_enough_police"] = "Pas assez de policiers..",
-        ["door_open"] = "La porte est déjà ouverte..",
-        ["cancelled"] = "Annulé..",
-        ["didnt_work"] = "Ca n'a pas marché..",
-        ["emty_box"] = "La boite est vide..",
-        ["injail"] = "Vous êtes en prison pour %{Time} mois..",
-        ["item_missing"] = "Il vous manque un objet..",
-        ["escaped"] = "Vous-vous êtes échappé... Courrez !",
-        ["do_some_work"] = "Travaillez pour réduire votre peine, Travail actuel: %{currentjob} ",
+        ["missing_something"] = "It looks like you are missing something...",
+        ["not_enough_police"] = "Not enough Police..",
+        ["door_open"] = "The door is already open..",
+        ["cancelled"] = "Process Canceled..",
+        ["didnt_work"] = "It did not work..",
+        ["emty_box"] = "The Box Is Empty..",
+        ["injail"] = "You're in jail for %{Time} months..",
+        ["item_missing"] = "You are missing an Item..",
+        ["escaped"] = "You escaped... Get the hell out of here.!",
+        ["do_some_work"] = "Do some work for sentence reduction, instant job: %{currentjob} ",
     },
     success = {
-        ["found_phone"] = "Vous avez trouvé un téléphone..",
-        ["time_cut"] = "Vous avez reçu une réduction de peine.",
-        ["free_"] = "Vous êtes libre! Profitez-en! :)",
-        ["timesup"] = "Votre peine a été purgée! Rendez-vous au centre des visites !",
+        ["found_phone"] = "You found a phone..",
+        ["time_cut"] = "You've worked some time off your sentence.",
+        ["free_"] = "You're free! Enjoy it! :)",
+        ["timesup"] = "Your time is up! Check yourself out at the visitors center",
     },
     info = {
-        ["timeleft"] = "Il vous reste encore... %{JAILTIME} mois",
-        ["lost_job"] = "Vous êtes au chômage",
-        ["job_interaction"] = "[E] Travailler sur l'électricité",
+        ["timeleft"] = "You still have to... %{JAILTIME} months",
+        ["lost_job"] = "You're Unemployed",
+        ["job_interaction"] = "[E] Electricity Work",
     }
 }
 Lang = Locale:new({
